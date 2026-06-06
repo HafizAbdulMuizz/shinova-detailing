@@ -3,15 +3,10 @@ import mongoose from "mongoose";
 const BookingSchema = new mongoose.Schema({
 
   name: String,
-
   phone: String,
-
   vehicleType: String,
-
   packageName: String,
-
   date: String,
-
   notes: String,
 
   status: {
@@ -19,9 +14,6 @@ const BookingSchema = new mongoose.Schema({
     default: "Pending",
   },
 
-},
-{
-  timestamps: true,
 });
 export default mongoose.models.Booking ||
 mongoose.model("Booking", BookingSchema);

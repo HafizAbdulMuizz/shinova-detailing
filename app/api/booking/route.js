@@ -76,3 +76,34 @@ export async function DELETE(request) {
   }
 
 }
+export async function PUT(request) {
+
+  try {
+
+    await connectDB();
+
+    const { id, status } =
+      await request.json();
+
+    const updatedBooking =
+      await Booking.findByIdAndUpdate(
+        id,
+        { status },
+        { new: true }
+      );
+
+    return NextResponse.json({
+      success: true,
+      booking: updatedBooking,
+    });
+
+  } catch (error) {
+
+    return NextResponse.json({
+      success: false,
+      message: error.message,
+    });
+
+  }
+
+}

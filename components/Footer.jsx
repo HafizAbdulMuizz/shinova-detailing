@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-8 border-t border-zinc-800">
@@ -13,6 +14,12 @@ export default function Footer() {
         <p className="text-gray-500 mt-4">
           © 2026 Shinova Detailing. All Rights Reserved.
         </p>
+        <Link
+  href="/admin"
+  className="text-gray-400 hover:text-yellow-500 transition"
+>
+  Staff Login
+</Link>
       </div>
     </footer>
   );
