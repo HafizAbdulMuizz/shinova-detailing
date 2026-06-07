@@ -25,58 +25,65 @@ export default function Booking({ selectedPackage }) {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
 
-    e.preventDefault();
+e.preventDefault();
 
-    try {
+setLoading(true);
 
-      const res = await fetch(
-        "/api/booking",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
-          body: JSON.stringify(
-            formData
-          ),
-        }
-      );
+try {
 
-      if (!res.ok) {
+```
+const res = await fetch(
+  "/api/booking",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  }
+);
 
-        toast.error(
-          "Booking Failed!"
-        );
+if (!res.ok) {
 
-        return;
-      }
+  toast.error("Booking Failed!");
 
-      toast.success(
-        "Booking Submitted Successfully!"
-      );
+  return;
+}
 
-      setFormData({
-        name: "",
-        phone: "",
-        vehicleType: "",
-        packageName:
-          "Essential Wash",
-        date: "",
-        notes: "",
-      });
+toast.success(
+  "Booking Submitted Successfully!"
+);
 
-    } catch {
+setFormData({
+  name: "",
+  phone: "",
+  vehicleType: "",
+  packageName: "Essential Wash",
+  date: "",
+  notes: "",
+});
+```
 
-      toast.error(
-        "Something went wrong!"
-      );
+} catch {
 
-    }
+```
+toast.error(
+  "Something went wrong!"
+);
+```
 
-  };
+} finally {
+
+```
+setLoading(false);
+```
+
+}
+
+};
+
   return (
     <section id="contact" className="bg-black text-white py-24">
       <div className="max-w-4xl mx-auto px-6">
