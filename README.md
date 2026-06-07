@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shinova Detailing Management System
 
-## Getting Started
+A Full Stack Car Detailing Management System built with Next.js, MongoDB Atlas and Tailwind CSS.
 
-First, run the development server:
+## Live Demo
 
-```bash
+https://shinova-detailing.vercel.app
+
+## GitHub Repository
+
+https://github.com/HafizAbdulMuizz/shinova-detailing
+
+## Features
+
+* Customer Appointment Booking
+* Admin Login & Logout
+* Booking Management Dashboard
+* Booking Status Tracking
+* Search Customers
+* Revenue Analytics
+* Delete Bookings
+* Responsive Design
+* MongoDB Atlas Integration
+* Cloud Deployment with Vercel
+
+## Tech Stack
+
+* Next.js
+* React.js
+* MongoDB Atlas
+* Mongoose
+* Tailwind CSS
+* Vercel
+
+## Admin Dashboard Features
+
+* Total Bookings Counter
+* Revenue Tracking
+* Pending Bookings Tracking
+* Confirmed Bookings Tracking
+* Completed Bookings Tracking
+* Customer Search
+* Status Update System
+* Delete Booking System
+
+## Project Structure
+
+app/
+├── admin/
+├── api/
+├── components/
+├── models/
+├── lib/
+
+## Installation
+
+Clone the repository:
+
+git clone https://github.com/HafizAbdulMuizz/shinova-detailing.git
+
+Install dependencies:
+
+npm install
+
+Run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Author
 
-## Learn More
+Hafiz Abdul Muizz
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+BSCS Student | Full Stack Web Developer
