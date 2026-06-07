@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 export default function Booking({ selectedPackage }) {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,40 +29,50 @@ export default function Booking({ selectedPackage }) {
 
     e.preventDefault();
 
-    setLoading(true);
-
     try {
 
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "/api/booking",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+          body: JSON.stringify(
+            formData
+          ),
+        }
+      );
 
-      const result = await res.json();
+      if (!res.ok) {
 
-      console.log(result);
+        toast.error(
+          "Booking Failed!"
+        );
 
-      alert("Booking Submitted Successfully!");
+        return;
+      }
+
+      toast.success(
+        "Booking Submitted Successfully!"
+      );
 
       setFormData({
         name: "",
         phone: "",
         vehicleType: "",
-        packageName: "Essential Wash",
+        packageName:
+          "Essential Wash",
         date: "",
         notes: "",
       });
 
-    } catch (error) {
+    } catch {
 
-      alert("Something went wrong!");
-
-    } finally {
-
-      setLoading(false);
+      toast.error(
+        "Something went wrong!"
+      );
 
     }
 
@@ -133,8 +144,8 @@ export default function Booking({ selectedPackage }) {
             type="submit"
             disabled={loading}
             className={`w-full text-black font-bold py-4 rounded-xl transition ${loading
-                ? "bg-gray-500 cursor-not-allowed"
-                : "bg-yellow-500 hover:bg-yellow-400"
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-yellow-500 hover:bg-yellow-400"
               }`}
           >
             {loading
