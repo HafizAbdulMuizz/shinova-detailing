@@ -25,65 +25,50 @@ export default function Booking({ selectedPackage }) {
       [e.target.name]: e.target.value,
     });
   };
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
 
-e.preventDefault();
+    e.preventDefault();
 
-setLoading(true);
+    setLoading(true);
 
-try {
+    try {
 
-```
-const res = await fetch(
-  "/api/booking",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  }
-);
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-if (!res.ok) {
+      const result = await res.json();
 
-  toast.error("Booking Failed!");
-
-  return;
-}
+      console.log(result);
 
 toast.success(
   "Booking Submitted Successfully!"
 );
+      setFormData({
+        name: "",
+        phone: "",
+        vehicleType: "",
+        packageName: "Essential Wash",
+        date: "",
+        notes: "",
+      });
 
-setFormData({
-  name: "",
-  phone: "",
-  vehicleType: "",
-  packageName: "Essential Wash",
-  date: "",
-  notes: "",
-});
-```
+    } catch (error) {
 
-} catch {
-
-```
 toast.error(
   "Something went wrong!"
 );
-```
+    } finally {
 
-} finally {
+      setLoading(false);
 
-```
-setLoading(false);
-```
+    }
 
-}
-
-};
-
+  };
   return (
     <section id="contact" className="bg-black text-white py-24">
       <div className="max-w-4xl mx-auto px-6">
@@ -151,8 +136,8 @@ setLoading(false);
             type="submit"
             disabled={loading}
             className={`w-full text-black font-bold py-4 rounded-xl transition ${loading
-              ? "bg-gray-500 cursor-not-allowed"
-              : "bg-yellow-500 hover:bg-yellow-400"
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-yellow-500 hover:bg-yellow-400"
               }`}
           >
             {loading
